@@ -71,7 +71,7 @@ class TermsViewController: UIViewController {
     }
 
     deinit {
-        print("TermsViewController is deallocated")
+        print("TermsAndConditions ViewController is deallocated")
     }
     
 }

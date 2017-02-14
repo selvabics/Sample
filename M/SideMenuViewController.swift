@@ -31,7 +31,7 @@ class SideMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     deinit {
-        print("SideMenuViewController is Deallocated")
+        print("SideMenu ViewController is Deallocated")
     }
     
     // MARK: UITableView Delegate

@@ -70,7 +70,7 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     deinit {
-        print("ForgotPasswordViewController is deallocated")
+        print("ForgotPassword ViewController is deallocated")
     }
 
 }

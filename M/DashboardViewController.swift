@@ -22,7 +22,7 @@ class DashboardViewController: UIViewController {
     }
     
     deinit {
-        print("DashboardViewController is Deallocated l")
+        print("Dashboard ViewController is Deallocated")
     }
     
 }
