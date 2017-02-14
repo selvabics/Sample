@@ -10,13 +10,36 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, RESideMenuDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController(rootViewController: storyBoard.instantiateViewController(withIdentifier: "ViewController"))
+        navigationController.isNavigationBarHidden = true
+        
+        let leftMenuViewController = storyBoard.instantiateViewController(withIdentifier: "SideMenuViewController")
+        let sideMenuViewController = RESideMenu(contentViewController: navigationController, leftMenuViewController: leftMenuViewController, rightMenuViewController: nil)
+        sideMenuViewController?.backgroundImage = UIImage(named: "WelcomeBackground.jpg")
+        sideMenuViewController?.menuPreferredStatusBarStyle = UIStatusBarStyle(rawValue: 1)!
+        
+        // UIStatusBarStyleLightContent
+        sideMenuViewController?.delegate = self
+        sideMenuViewController?.contentViewShadowColor = UIColor.black
+        sideMenuViewController?.contentViewShadowOffset = CGSize(width: CGFloat(0), height: CGFloat(0))
+        sideMenuViewController?.contentViewShadowOpacity = 0.6
+        sideMenuViewController?.contentViewShadowRadius = 12
+        sideMenuViewController?.contentViewShadowEnabled = true
+        self.window?.rootViewController = sideMenuViewController
+        self.window?.backgroundColor = UIColor.white
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -43,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -89,5 +112,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension UITextField{
+    @IBInspectable var placeHolderColor: UIColor? {
+        get {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSForegroundColorAttributeName: newValue!])
+        }
+    }
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
 }
 
