@@ -33,4 +33,14 @@ class Utility {
         })
     }
     
+    func animateButton(button: UIButton, mainView: UIView, completion: @escaping (_ result: Bool)->()) {
+        UIView.animate(withDuration: 1, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            button.frame = CGRect(x: 0, y: 0, width: mainView.frame.size.height, height: mainView.frame.size.height)
+            button.layer.cornerRadius = button.frame.height / 2
+            button.center = mainView.center
+            }, completion: { (true) in
+                completion(true)
+        })
+    }
+    
 }
