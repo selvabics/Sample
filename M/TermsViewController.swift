@@ -24,7 +24,6 @@ class TermsViewController: UIViewController {
         
         self.agreeloader.stopAnimating()
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,8 +56,6 @@ class TermsViewController: UIViewController {
                 self.unLoadAgreeButton()
         })
     }
-    
-    
     
     func unLoadAgreeButton() {
         UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {

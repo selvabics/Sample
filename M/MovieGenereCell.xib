@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieGenereCell" id="KGk-i7-Jjw" customClass="MovieGenereCell" customModule="M" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GeV-oD-MKn">
+                        <rect key="frame" x="0.0" y="-103.5" width="375" height="250.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="375" id="P8L-S5-Hly"/>
+                            <constraint firstAttribute="height" constant="250" id="mRH-eC-v6r"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVl-I5-NCf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.35324594669999998" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="bVl-I5-NCf" secondAttribute="bottom" id="0oS-Gl-P9H"/>
+                    <constraint firstItem="bVl-I5-NCf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4EM-re-fq4"/>
+                    <constraint firstAttribute="trailing" secondItem="bVl-I5-NCf" secondAttribute="trailing" id="5r2-7b-VVc"/>
+                    <constraint firstItem="bVl-I5-NCf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9NS-wf-G5v"/>
+                    <constraint firstItem="GeV-oD-MKn" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cLy-kg-SoB"/>
+                    <constraint firstItem="GeV-oD-MKn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="h6F-1g-Duz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="constraintVerticalCenter" destination="h6F-1g-Duz" id="4am-Be-m4u"/>
+                <outlet property="genereImageView" destination="GeV-oD-MKn" id="2Kz-wU-Bl0"/>
+                <outlet property="nameLabel" destination="bVl-I5-NCf" id="QIR-Ml-gzZ"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

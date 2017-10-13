@@ -106,7 +106,7 @@ class ViewController: UIViewController, PageDelegate {
     }
 
     func configureBackgroundParallax() {
-        backgroundParallax = FFBackgroundParallax(frame: UIScreen.main.bounds)
+        backgroundParallax = FFBackgroundParallax(frame: CGRect(x: 0, y: -20, width: self.view.bounds.width, height: self.view.bounds.height + 20))
         backgroundParallax.setImageBackground(UIImage(named: "WelcomeBackground.jpg"))
         var xOrigin: CGFloat = 0
         for i in 0..<kTotalItems {
@@ -144,7 +144,6 @@ class ViewController: UIViewController, PageDelegate {
     func goToDashboard() {
         let vc: DashboardViewController = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         self.sideMenuViewController.setContentViewController(vc, animated: true)
-        
 //        vc.modalPresentationStyle = .custom
 //        vc.transitioningDelegate = scaleTransition
 //        self.present(vc, animated: true, completion: nil)
@@ -176,33 +175,15 @@ class ViewController: UIViewController, PageDelegate {
     func loadSignUpButton() {
         self.signUpState = 2
         signUpFrame = signUpButton.frame
-        
         Utility.sharedInstance.loadButton(loader: signUploader, button: signUpButton, title: "", mainView: self.view) { (true) in
             self.goToDashboard()
             self.unLoadSignUpButton()
         }
-        
-//        self.signUploader.startAnimating()
-//        UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-//            self.signUpButton.frame = CGRect(x: ((self.view.frame.size.width / 2) -  (self.signUpButton.frame.size.height / 2)), y:  self.signUpButton.frame.origin.y, width: self.signUpButton.frame.size.height, height:  self.signUpButton.frame.size.height)
-//            self.signUpButton.setTitle("", for: UIControlState.normal)
-//            }, completion: { (true) in
-//                self.goToDashboard()
-//                self.unLoadSignUpButton()
-//        })
     }
     
     func unLoadSignUpButton() {
         self.signUpState = 1
-        
         Utility.sharedInstance.unLoadButton(loader: signUploader, button: signUpButton, title: "Sign Up", frame: signUpFrame)
-        
-//        UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-//            self.signUpButton.frame = self.signUpFrame
-//            }, completion: { (true) in
-//                self.signUploader.stopAnimating()
-//                self.signUpButton.setTitle("Sign Up", for: UIControlState.normal)
-//        })
     }
     
     // MARK: - IBOutlet Action Methods

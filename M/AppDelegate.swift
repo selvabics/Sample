@@ -40,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RESideMenuDelegate {
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
         
+        UINavigationBar.appearance().barStyle = .blackOpaque
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         return true
     }
 
